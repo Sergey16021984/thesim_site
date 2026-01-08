@@ -1,0 +1,584 @@
+'use client'
+
+
+
+import { useInView } from 'react-intersection-observer'
+
+import { useState } from 'react'
+
+import { Send, CheckCircle, AlertCircle, Mail, Clock, MessageCircle } from 'lucide-react'
+
+import { useTranslations, useLocale } from '@/hooks/useTranslations'
+
+
+
+export default function ContactForm() {
+
+  const { t } = useTranslations()
+  const locale = useLocale()
+
+  const [ref] = useInView({
+
+    triggerOnce: true,
+
+    threshold: 0.1,
+
+  })
+
+
+
+  const [formData, setFormData] = useState({
+
+    name: '',
+
+    email: '',
+
+    phone: '',
+
+    socialNetwork: '' // Переименовываем с telegram на socialNetwork
+
+  })
+
+
+
+  const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle')
+
+  const [message, setMessage] = useState('')
+
+  const ruContactCopy = {
+    contactChannelLabel: '\u041a\u043e\u043d\u0442\u0430\u043a\u0442 (\u0442\u0435\u043b\u0435\u0444\u043e\u043d, Telegram, WhatsApp\u2026)',
+    contactChannelPlaceholder: '\u0422\u0435\u043b\u0435\u0444\u043e\u043d \u0438\u043b\u0438 \u0441\u043e\u0446\u0441\u0435\u0442\u044c',
+    optionalSuffix: '(\u0435\u0441\u043b\u0438 \u0435\u0441\u0442\u044c)',
+    requiredNote: '* \u041e\u0431\u044f\u0437\u0430\u0442\u0435\u043b\u044c\u043d\u043e\u0435 \u043f\u043e\u043b\u0435. \u041e\u0441\u0442\u0430\u043b\u044c\u043d\u044b\u0435 \u043f\u043e\u043b\u044f \u043c\u043e\u0436\u043d\u043e \u043d\u0435 \u0437\u0430\u043f\u043e\u043b\u043d\u044f\u0442\u044c.',
+  }
+
+
+
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+
+    const { name, value } = e.target
+
+    setFormData(prev => ({
+
+      ...prev,
+
+      [name]: value
+
+    }))
+
+  }
+
+
+
+  const handleSubmit = async (e: React.FormEvent) => {
+
+    e.preventDefault()
+
+    setStatus('loading')
+
+
+
+    try {
+
+      // Отправляем заявку на API
+
+      const response = await fetch('/api/leads', {
+
+        method: 'POST',
+
+        headers: {
+
+          'Content-Type': 'application/json',
+
+        },
+
+        body: JSON.stringify(formData),
+
+      })
+
+
+
+      if (!response.ok) {
+
+        throw new Error('Failed to submit lead')
+
+      }
+
+
+
+      const result = await response.json()
+
+      
+
+      if (result.success) {
+
+        setStatus('success')
+
+        setMessage(result.message)
+
+        setFormData({
+
+          name: '',
+
+          email: '',
+
+          phone: '',
+
+          socialNetwork: ''
+
+        })
+
+      } else {
+
+        setStatus('error')
+
+        setMessage(result.message || 'Произошла ошибка при отправке заявки')
+
+      }
+
+      
+
+    } catch (error) {
+
+      console.error('Form submission error:', error)
+
+      setStatus('error')
+
+      setMessage(t('contact.form.error'))
+
+    }
+
+  }
+
+
+
+  return (
+
+    <section className="py-20 relative overflow-hidden" suppressHydrationWarning>
+
+      {/* Background Elements */}
+
+      {/* Убираем градиентные фоны */}
+
+      {/* <div className="absolute inset-0 bg-gradient-to-b from-dark-800 to-dark-900"></div> */}
+
+      {/* <div className="absolute top-0 left-0 w-full h-full opacity-30">
+
+        <div className="absolute inset-0 bg-gradient-to-br from-primary-500/3 to-transparent"></div>
+
+      </div> */}
+
+
+
+      <div className="container mx-auto px-4 relative z-10">
+
+        <div
+
+          ref={ref}
+
+          className="text-center mb-16"
+
+        >
+
+          <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
+
+            {t('contact.title')} <span className="gradient-text">The SiM</span>
+
+          </h2>
+
+          <p className="text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed">
+
+            {t('contact.subtitle')}
+
+          </p>
+
+        </div>
+
+
+
+        <div
+
+          className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start"
+
+        >
+
+          {/* Contact Form */}
+
+          <div className="glass rounded-2xl p-8">
+
+            <form onSubmit={handleSubmit} className="space-y-6">
+
+              <div>
+
+                <label htmlFor="name" className="block text-sm font-medium text-gray-300 mb-2">
+
+                  {t('contact.form.name')} <span className="text-red-400">*</span>
+
+                </label>
+
+                <input
+
+                  type="text"
+
+                  id="name"
+
+                  name="name"
+
+                  value={formData.name}
+
+                  onChange={handleInputChange}
+
+                  required
+
+                  autoComplete="name"
+
+                  className="w-full px-4 py-3 bg-dark-700 border border-gray-600 rounded-xl text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent"
+
+                  placeholder={t('contact.form.name')}
+
+                />
+
+              </div>
+
+
+
+              <div>
+
+                <label htmlFor="email" className="block text-sm font-medium text-gray-300 mb-2">
+
+                  {t('contact.form.email')} <span className="text-orange-400">*</span>
+
+                </label>
+
+                <input
+
+                  type="text"
+
+                  id="email"
+
+                  name="email"
+
+                  value={formData.email}
+
+                  onChange={handleInputChange}
+
+                  autoComplete="email"
+
+                  className="w-full px-4 py-3 bg-dark-700 border border-gray-600 rounded-xl text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent"
+
+                  placeholder={t('contact.form.email')}
+
+                />
+
+              </div>
+
+
+
+              <div>
+
+                <label htmlFor="phone" className="block text-sm font-medium text-gray-300 mb-2">
+
+                  {(locale === 'ru' ? ruContactCopy.contactChannelLabel : t('contact.form.contactChannelLabel')) || '??????? (???????, Telegram, WhatsApp?)'} <span className="text-orange-400">*</span>
+
+                </label>
+
+                <input
+
+                  type="text"
+
+                  id="phone"
+
+                  name="phone"
+
+                  value={formData.phone}
+
+                  onChange={handleInputChange}
+
+                  autoComplete="tel"
+
+                  className="w-full px-4 py-3 bg-dark-700 border border-gray-600 rounded-xl text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent"
+
+                  placeholder={(locale === 'ru' ? ruContactCopy.contactChannelPlaceholder : t('contact.form.contactChannelPlaceholder')) || '??????? ??? ???????'}
+
+                />
+
+              </div>
+
+
+
+              <div>
+
+                <label htmlFor="socialNetwork" className="block text-sm font-medium text-gray-300 mb-2">
+
+                  {t('contact.form.socialNetwork') || '??????????? ???'} <span className="text-gray-500 text-xs">{locale === 'ru' ? ruContactCopy.optionalSuffix : t('contact.form.optionalSuffix') || '(optional)'}</span>
+
+                </label>
+
+                <input
+
+                  type="text"
+
+                  id="socialNetwork"
+
+                  name="socialNetwork"
+
+                  value={formData.socialNetwork}
+
+                  onChange={handleInputChange}
+
+                  autoComplete="off"
+
+                  className="w-full px-4 py-3 bg-dark-700 border border-gray-600 rounded-xl text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent"
+
+                  placeholder={t('contact.form.socialNetwork') || 'Введите реферальный код, если есть'}
+
+                />
+
+              </div>
+
+
+
+              {/* Подсказка о необязательных полях */}
+
+              <div className="text-xs text-gray-400 italic">
+                {locale === 'ru' ? ruContactCopy.requiredNote : t('contact.form.requiredNote') || '* Required field. Other fields can be left blank.'}
+              </div>
+
+
+
+              {/* Status Message */}
+
+              {status !== 'idle' && (
+
+                <div className={`p-4 rounded-xl flex items-center space-x-3 ${
+
+                  status === 'success' ? 'bg-green-500/20 border border-green-500/30' :
+
+                  status === 'error' ? 'bg-red-500/20 border border-red-500/30' :
+
+                  'bg-blue-500/20 border border-blue-500/30'
+
+                }`}>
+
+                  {status === 'success' ? (
+
+                    <CheckCircle className="w-5 h-5 text-green-400" />
+
+                  ) : status === 'error' ? (
+
+                    <AlertCircle className="w-5 h-5 text-red-400" />
+
+                  ) : (
+
+                    <div className="w-5 h-5 border-2 border-blue-400 border-t-transparent rounded-full animate-spin"></div>
+
+                  )}
+
+                  <span className={`text-sm ${
+
+                    status === 'success' ? 'text-green-400' :
+
+                    status === 'error' ? 'text-red-400' :
+
+                    'text-blue-400'
+
+                  }`}>
+
+                    {message}
+
+                  </span>
+
+                </div>
+
+              )}
+
+
+
+              <button
+
+                type="submit"
+
+                disabled={status === 'loading'}
+
+                className="w-full bg-gradient-primary text-white py-4 rounded-xl font-semibold hover:shadow-lg hover:scale-102 transition-all disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center space-x-2"
+
+              >
+
+                <Send className="w-5 h-5" />
+
+                <span>{status === 'loading' ? t('contact.form.loading') : t('contact.form.submit')}</span>
+
+              </button>
+
+            </form>
+
+          </div>
+
+
+
+          {/* Contact Info */}
+
+          <div className="space-y-8">
+
+            <div>
+
+              <h3 className="text-2xl font-bold text-white mb-4">
+
+                {t('contact.info.title')}
+
+              </h3>
+
+              <p className="text-gray-300 leading-relaxed">
+
+                {t('contact.info.description')}
+
+              </p>
+
+            </div>
+
+
+
+            <div className="space-y-4">
+
+              <div className="flex items-center space-x-4">
+
+                <div className="w-12 h-12 bg-blue-500/20 rounded-xl flex items-center justify-center">
+
+                  <MessageCircle className="w-6 h-6 text-blue-400" />
+
+                </div>
+
+                <div>
+
+                  <div className="font-semibold text-white">{t('contact.info.telegram')}</div>
+
+                  <div className="text-gray-400">@TheSim_service</div>
+
+                </div>
+
+              </div>
+
+
+
+              <div className="flex items-center space-x-4">
+
+                <div className="w-12 h-12 bg-green-500/20 rounded-xl flex items-center justify-center">
+
+                  <Mail className="w-6 h-6 text-green-400" />
+
+                </div>
+
+                <div>
+
+                  <div className="font-semibold text-white">{t('contact.info.email')}</div>
+
+                  <div className="text-gray-400">Info@thesim.in</div>
+
+                </div>
+
+              </div>
+
+
+
+              <div className="flex items-center space-x-4">
+
+                <div className="w-12 h-12 bg-orange-500/20 rounded-xl flex items-center justify-center">
+
+                  <Clock className="w-6 h-6 text-orange-400" />
+
+                </div>
+
+                <div>
+
+                  <div className="font-semibold text-white">{t('contact.info.support')}</div>
+
+                  <div className="text-gray-400">{t('contact.info.supportHours')}</div>
+
+                </div>
+
+              </div>
+
+            </div>
+
+
+
+            {/* Trust Indicators */}
+
+            <div className="glass rounded-2xl p-6">
+
+              <h4 className="text-lg font-semibold text-white mb-4">{t('contact.trust.title')}</h4>
+
+              <div className="space-y-4">
+
+                <div className="flex items-start space-x-3">
+
+                  <CheckCircle className="w-5 h-5 text-green-400 mt-0.5 flex-shrink-0" />
+
+                  <div>
+
+                    <span className="text-gray-300 text-sm font-medium">{t('contact.trust.zeroLosses')}</span>
+
+                    <p className="text-gray-400 text-xs mt-1">{t('contact.trust.zeroLossesDesc')}</p>
+
+                  </div>
+
+                </div>
+
+                <div className="flex items-start space-x-3">
+
+                  <CheckCircle className="w-5 h-5 text-green-400 mt-0.5 flex-shrink-0" />
+
+                  <div>
+
+                    <span className="text-gray-300 text-sm font-medium">{t('contact.trust.provenStrategy')}</span>
+
+                    <p className="text-gray-400 text-xs mt-1">{t('contact.trust.provenStrategyDesc')}</p>
+
+                  </div>
+
+                </div>
+
+                <div className="flex items-start space-x-3">
+
+                  <CheckCircle className="w-5 h-5 text-green-400 mt-0.5 flex-shrink-0" />
+
+                  <div>
+
+                    <span className="text-gray-300 text-sm font-medium">{t('contact.trust.transparentReporting')}</span>
+
+                    <p className="text-gray-400 text-xs mt-1">{t('contact.trust.transparentReportingDesc')}</p>
+
+                  </div>
+
+                </div>
+
+                <div className="flex items-start space-x-3">
+
+                  <CheckCircle className="w-5 h-5 text-green-400 mt-0.5 flex-shrink-0" />
+
+                  <div>
+
+                    <span className="text-gray-300 text-sm font-medium">{t('contact.trust.personalManager')}</span>
+
+                    <p className="text-gray-400 text-xs mt-1">{t('contact.trust.personalManagerDesc')}</p>
+
+                  </div>
+
+                </div>
+
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+  )
+
+}
+

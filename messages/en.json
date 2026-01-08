@@ -1,0 +1,397 @@
+{
+  "navigation": {
+    "home": "Home",
+    "about": "About",
+    "services": "Services",
+    "contact": "Contact",
+    "personalCabinet": "Personal Cabinet"
+  },
+  "common": {
+    "back": "Back"
+  },
+  "hero": {
+    "title": "The SiM — Your reliable partner in digital asset management",
+    "subtitle": "Invest with capital protection, smart buying and selling, portfolio diversification",
+    "ctaButton": "Start Investing",
+    "learnMore": "Learn More",
+    "stats": {
+      "managedAssets": "Assets Under Management",
+      "satisfiedClients": "Satisfied Clients",
+      "support": "24/7 Support"
+    }
+  },
+  "about": {
+    "title": "digital asset management service",
+    "description": "That earns from market volatility, not from predictions.",
+    "demoTitle": "Personal Cabinet Demo",
+    "playDemo": "Play Demo",
+    "pauseDemo": "Pause",
+    "loadingDemo": "Loading demo...",
+    "features": {
+      "market": {
+        "title": "Works at any stage of the market",
+        "description": "Growth, decline or sideways — our system adapts to any conditions"
+      },
+      "assets": {
+        "title": "Uses only verified assets",
+        "description": "Carefully selected cryptocurrencies with high liquidity"
+      },
+      "trends": {
+        "title": "Follows the market",
+        "description": "We don't try to 'guess' the direction, we work with current trends"
+      },
+      "api": {
+        "title": "Works through API with Binance",
+        "description": "Without storing funds on own accounts, direct integration"
+      }
+    },
+    "dashboard": {
+      "title": "Full control over your investments",
+      "description": "Powerful control panel for tracking all your assets in real time",
+      "features": {
+        "realTime": "Real-time data",
+        "analytics": "Detailed analytics",
+        "security": "Maximum security",
+        "portfolio": "Portfolio management",
+        "alerts": "Smart notifications"
+      }
+    },
+    "assets": {
+      "button": "Assets",
+      "modalTitle": "Verified assets",
+      "modalSubtitle": "The list updates automatically from /public/assets.json.",
+      "loading": "Loading list...",
+      "empty": "The list is empty.",
+      "close": "Close",
+      "loadError": "Failed to load the assets list."
+    }
+  },
+  "video": {
+    "title": "Video Review",
+    "subtitle": "See how our platform works for managing digital assets",
+    "noImages": "No screenshots available",
+    "loadingImages": "Loading images...",
+    "contentTitle": "Full Platform Review",
+    "contentDescription": "Learn how our platform helps investors manage digital assets with maximum efficiency and security.",
+    "whatYouWillSee": "What you will see:",
+    "feature1": "Personal cabinet interface",
+    "feature2": "Investment process",
+    "feature3": "Analytical tools",
+    "feature4": "Security system",
+    "watchButton": "Watch Video",
+    "close": "Close"
+  },
+  "benefits": {
+    "title": "Why choose us",
+    "why": {
+      "title": "Why",
+      "subtitle": "Our advantages"
+    },
+    "hedging": {
+      "title": "Risk Hedging",
+      "description": "Protection from market volatility"
+    },
+    "smartBuying": {
+      "title": "Smart Buying",
+      "description": "Automatic analysis of best entry points"
+    },
+    "smartSelling": {
+      "title": "Smart Selling",
+      "description": "Optimal moments for profit taking"
+    },
+    "analytics": {
+      "title": "Advanced Analytics",
+      "description": "Detailed market and trend analysis"
+    },
+    "liquidation": {
+      "title": "Quick Liquidation",
+      "description": "Instant position closing when needed"
+    },
+    "diversification": {
+      "title": "Portfolio Diversification",
+      "description": "Risk distribution across various assets"
+    },
+    "reinvestment": {
+      "title": "Profit Reinvestment",
+      "description": "Automatic capital growth"
+    },
+    "liquidity": {
+      "title": "High Liquidity",
+      "description": "Fast trade execution"
+    },
+    "items": {
+      "protection": {
+        "title": "Capital Protection",
+        "description": "Proven risk minimization strategies"
+      },
+      "profit": {
+        "title": "Stable Profit",
+        "description": "Profitability in any market conditions"
+      },
+      "technology": {
+        "title": "Advanced Technologies",
+        "description": "Automated trading algorithms"
+      },
+      "support": {
+        "title": "Expert Support",
+        "description": "Professional assistance 24/7"
+      }
+    }
+  },
+  "security": {
+    "title": "Security",
+    "subtitle": "Your funds under reliable protection",
+    "features": {
+      "api": {
+        "title": "API Integration",
+        "description": "Direct connection to exchanges",
+        "details": "Secure API connection to leading crypto exchanges"
+      },
+      "noStorage": {
+        "title": "No Fund Storage",
+        "description": "Your funds remain in your accounts",
+        "details": "We don't store your funds, only manage them"
+      },
+      "transparency": {
+        "title": "Full Transparency",
+        "description": "All operations visible in real time",
+        "details": "Complete control over all operations"
+      },
+      "protection": {
+        "title": "Risk Protection",
+        "description": "Multi-level security system",
+        "details": "Modern methods of loss protection"
+      }
+    },
+    "stats": {
+      "title": "Our Reliability",
+      "uptime": "99.9%",
+      "uptimeLabel": "Uptime",
+      "assets": "$10M+",
+      "assetsLabel": "Under Management",
+      "protection": "100%",
+      "protectionLabel": "Fund Protection"
+    }
+  },
+  "investment": {
+    "title": "Investment Plans",
+    "subtitle": "Choose the right plan for your goals",
+    "minAmount": {
+      "title": "Minimum Amount",
+      "value": "$500",
+      "description": "Start with a small amount"
+    },
+    "professional": {
+      "title": "Professional Approach",
+      "description": "Individual strategies for each client"
+    },
+    "transparency": {
+      "title": "Full Transparency",
+      "description": "Real-time reports on all operations"
+    },
+    "support": {
+      "title": "Expert Support",
+      "description": "Personal manager for each client"
+    },
+    "description": "Choose the right investment plan",
+    "plans": {
+      "basic": {
+        "name": "Basic",
+        "amount": "$1,000",
+        "features": "Basic features"
+      },
+      "advanced": {
+        "name": "Advanced",
+        "amount": "$2,000",
+        "features": "Extended capabilities"
+      },
+      "premium": {
+        "name": "Premium",
+        "amount": "$5,000",
+        "features": "All features"
+      }
+    },
+    "button": "Start Investing"
+  },
+  "testimonials": {
+    "title": "Client Reviews",
+    "subtitle": "What our users say",
+    "items": {
+      "anton": {
+        "content": "Excellent platform! Increased capital by 40% in 6 months. I recommend it to everyone!",
+        "name": "Anton K.",
+        "role": "Investor"
+      },
+      "lyudmila": {
+        "content": "Professional approach and excellent support. Very satisfied with the results.",
+        "name": "Lyudmila S.",
+        "role": "Entrepreneur"
+      },
+      "nattapong": {
+        "content": "The SiM helped me understand crypto investments. Very grateful!",
+        "name": "Nattapong T.",
+        "role": "Trader"
+      },
+      "david": {
+        "content": "Transparency and reliability are the main advantages of this platform.",
+        "name": "David M.",
+        "role": "Financial Advisor"
+      },
+      "zhanna": {
+        "content": "Convenient interface and excellent results. I continue to invest!",
+        "name": "Zhanna L.",
+        "role": "Investor"
+      },
+      "olivier": {
+        "content": "The best platform for managing digital assets. I recommend it!",
+        "name": "Olivier D.",
+        "role": "Crypto Enthusiast"
+      }
+    },
+    "cta": {
+      "title": "Ready to start?",
+      "subtitle": "Join thousands of satisfied clients",
+      "button": "Start Investing"
+    }
+  },
+  "faq": {
+    "title": "Frequently Asked Questions",
+    "subtitle": "Answers to popular questions",
+    "capitalProtection": {
+      "question": "How is capital protection ensured?",
+      "answer": "We use a multi-level protection system, including stop-losses and portfolio diversification."
+    },
+    "cryptocurrencies": {
+      "question": "Which cryptocurrencies do you work with?",
+      "answer": "We work with top cryptocurrencies: Bitcoin, Ethereum, Binance Coin and other liquid assets."
+    },
+    "investmentStart": {
+      "question": "How to start investing?",
+      "answer": "Simply register, choose an investment plan and follow the instructions."
+    },
+    "risks": {
+      "question": "What are the investment risks?",
+      "answer": "All investments involve risks. We minimize them through diversification and professional management."
+    },
+    "returns": {
+      "question": "What returns can I expect?",
+      "answer": "Returns depend on market conditions and chosen strategy. We aim for stable profits."
+    },
+    "security": {
+      "question": "How safe are my investments?",
+      "answer": "Your funds are fully protected by modern encryption technologies."
+    },
+    "minimumInvestment": {
+      "question": "What is the minimum amount for investing?",
+      "answer": "The minimum amount is $1,000."
+    },
+    "withdrawal": {
+      "question": "How quickly can I withdraw funds?",
+      "answer": "Withdrawal takes from 24 to 48 hours."
+    },
+    "support": {
+      "question": "How to get support?",
+      "answer": "Our support team is available 24/7 via Telegram and email."
+    },
+    "contactText": "Didn't find an answer to your question?",
+    "contactButton": "Contact Us",
+    "items": {
+      "safety": {
+        "question": "How safe are my investments?",
+        "answer": "Your funds are fully protected by modern encryption technologies."
+      },
+      "minimum": {
+        "question": "What is the minimum amount for investing?",
+        "answer": "The minimum amount is $1,000."
+      },
+      "withdrawal": {
+        "question": "How quickly can I withdraw funds?",
+        "answer": "Withdrawal takes from 24 to 48 hours."
+      }
+    }
+  },
+  "contact": {
+    "title": "Contact Us",
+    "subtitle": "Ready to start your journey to financial independence?",
+    "form": {
+      "name": "Name",
+      "email": "Email",
+      "phone": "Phone",
+      "socialNetwork": "Referral Code",
+      "contactChannelLabel": "Contact (phone, Telegram, WhatsApp…)",
+      "contactChannelPlaceholder": "Phone or social network",
+      "submit": "Submit",
+      "sending": "Sending...",
+      "success": "Message sent!",
+      "error": "Sending error",
+      "loading": "Sending...",
+      "optionalSuffix": "(optional)",
+      "requiredNote": "* Required field. Other fields can be left blank."
+    },
+    "info": {
+      "title": "Contact Information",
+      "description": "We are always ready to help you",
+      "socialNetwork": "@TheSim_service",
+      "telegram": "Telegram",
+      "email": "Email",
+      "support": "Technical Support",
+      "supportHours": "24/7"
+    },
+    "trust": {
+      "title": "Why Trust Us",
+      "zeroLosses": "Zero losses for 2 years",
+      "zeroLossesDesc": "None of our clients have shown negative dynamics throughout the entire cooperation period",
+      "provenStrategy": "Proven strategy",
+      "provenStrategyDesc": "Unique risk management methodology with capital preservation guarantee",
+      "transparentReporting": "Transparent reporting",
+      "transparentReportingDesc": "Weekly reports on portfolio status and returns",
+      "personalManager": "Personal manager",
+      "personalManagerDesc": "Individual support for each client 24/7"
+    }
+  },
+  "footer": {
+    "description": "Reliable partner in digital asset management",
+    "copyright": "© 2025 TheSim. All rights reserved.",
+    "disclaimer": "Investments involve risks. Past results do not guarantee future returns.",
+    "sections": {
+      "product": {
+        "title": "Product",
+        "about": "About Platform",
+        "benefits": "Benefits",
+        "security": "Security",
+        "video": "Video Review"
+      },
+      "support": {
+        "title": "Support",
+        "contact": "Contact",
+        "telegram": "Telegram",
+        "email": "Email"
+      },
+      "legal": {
+        "title": "Legal Information",
+        "privacy": "Privacy Policy",
+        "terms": "Terms of Use",
+        "cookies": "Cookie Policy"
+      },
+      "cookies": {
+        "title": "We use cookies",
+        "subtitle": "To improve your experience",
+        "description": "We use cookies to analyze traffic, personalize content and improve website functionality.",
+        "showDetails": "Show details",
+        "hideDetails": "Hide details",
+        "acceptAll": "Accept all",
+        "necessary": {
+          "title": "Necessary cookies",
+          "description": "Provide basic website functionality",
+          "only": "Necessary only"
+        },
+        "analytics": {
+          "title": "Analytics cookies",
+          "description": "Help us understand how the site is used"
+        },
+        "reject": "Reject",
+        "learnMore": "Learn more"
+      }
+    }
+  }
+}

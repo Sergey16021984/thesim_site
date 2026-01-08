@@ -1,0 +1,72 @@
+# Dependencies
+node_modules/
+package-lock.json
+.pnp
+.pnp.js
+
+# Testing
+/coverage
+
+# Next.js
+/.next/
+/out/
+
+# Production
+/build
+
+# Misc
+.DS_Store
+
+# Debug
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Local env files
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# Vercel
+.vercel
+
+# TypeScript
+*.tsbuildinfo
+next-env.d.ts
+
+# Видео файлы (загружаются отдельно на сервер)
+public/videos/
+*.mp4
+*.avi
+*.mov
+*.webm
+*.mkv
+
+# SSL certificates
+ssl/cert.pem
+ssl/key.pem
+ssl/*.crt
+ssl/*.key
+
+# Logs
+*.log
+
+# Backup files
+*.backup
+*.bak
+
+# Duplicate project folder
+the-sim-final/
+# Video archives
+*.tar.gz
+*.zip
+videos.tar*
+videos.zip
+
+# Git command artifacts (случайно созданные файлы от команд)
+" --date=iso*"
+tatus*
+*--porcelain*
+*--date=iso*
