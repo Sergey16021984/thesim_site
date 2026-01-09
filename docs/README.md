@@ -34,6 +34,8 @@ npm run dev
 
 # Открыть http://localhost:3000
 ```
+ребулдить сайт
+~/projects/thesim/update.sh
 
 ### 🐳 Production (Docker)
 
